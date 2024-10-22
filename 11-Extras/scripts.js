@@ -96,3 +96,70 @@ console.log('reverse: ', data.reverse());
   })
 
   console.log('meusLivros', meusLivros)
+
+
+
+  carros = [ 
+      {nome: 'ferrari', ano: 2000, qtdd: 12 },
+      {nome: 'fusca', ano: 1900, qtdd: 9 },
+      {nome: 'audi', ano: 2022, qtdd: 8 },
+    ]
+
+
+  const carro = carros.map((car) => car.qtdd >= 9 );
+  console.log(carro);
+
+  const carroFind = carros.find((car) => car.qtdd === 9);
+  console.log(carroFind);
+
+  const carFilter = carros.filter((car) => car.nome === "fusca");
+  console.log(carFilter);
+
+  const carFindIndex = carros.findIndex((car) => car.nome === "audi");
+  console.log(carFindIndex)
+
+  const carMap = carros.map((carro, index) => {
+    if(carro.qtdd >= 8){
+      carro.qtdd += 2;
+      carro.nome += ' Turbo'
+    }
+    return{
+      qtdd: carro.qtdd,
+      nome: carro.nome,
+    }
+  });
+
+
+  console.log(carMap)
+
+
+
+  const precos = [
+      'Crédito',
+      'R$ 200',
+      'R$ 300',
+      'Contas a pagar',
+      'R$ 300',
+      'R$ 400',
+      'Meus dados',
+    ];
+
+
+  const precosFiltro = precos.filter((price) => {
+    return price.includes('R$')
+  });
+
+
+  const precosNumeros = precosFiltro.map((preco) => {
+    return Number(preco.replace('R$ ',''));
+  })
+
+  console.log(precosFiltro)
+  console.log(precosNumeros)
+
+  const total = precosNumeros.reduce((acc, total) => {
+    // console.log(acc, total);
+    return acc + total;
+  },0)
+
+console.log(total)
